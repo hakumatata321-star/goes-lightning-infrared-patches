@@ -21,12 +21,11 @@ The builder script `build_patches.py` in the repository reproduces steps 1 to 3 
 
 ## Contents
 
-| file | content |
-|---|---|
-| `patches.csv` | `patch_id`, `split` (train / test / unlabelled), `satellite`, `local_hour` |
-| `goes16_patches.npz` | `patch_id`, `inputs` (N, 4, 4, 128, 128) float16, `flash_counts` (N, 3, 32, 32) uint16 |
-| `goes18_patches.npz` | the same arrays for GOES-18 |
-| `LICENSE` | terms |
+- `patches.csv`: one row per patch, with `patch_id`, `split` (train, test or unlabelled), `satellite` and `local_hour`.
+- `goes16_patches.npz`: arrays `patch_id`, `inputs` (N, 4, 4, 128, 128) float16 and `flash_counts` (N, 3, 32, 32) uint16.
+- `goes18_patches.npz`: the same arrays for GOES-18.
+- `build_patches.py`: the builder script.
+- `LICENSE`: terms.
 
 Axes of `inputs`: scan (oldest first), channel (8, 10, 13, 15), row, column. Axes of `flash_counts`: interval, row, column. Cell (r, c) covers pixel rows 4r to 4r+3 and columns 4c to 4c+3.
 
