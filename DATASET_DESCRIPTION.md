@@ -31,6 +31,20 @@ Axes of `inputs`: scan (oldest first), channel (8, 10, 13, 15), row, column. Axe
 
 Split design: 3,000 GOES-16 patches from days 183 to 202 form the training split. Up to 1,100 GOES-18 patches from days 214 to 219 form the test split. GOES-18 patches from days 222 to 224 form the unlabelled split. No calendar day is shared between splits.
 
+## Intended Use
+
+The dataset is meant for research and benchmarking on mapping lightning activity from infrared imagery, and on transferring such models from one geostationary satellite to another (GOES-16 to GOES-18). It also suits teaching about satellite meteorology and spatial verification with the Fractions Skill Score. It is not intended for operational warnings or safety decisions.
+
+## Known Limitations
+
+- Coverage is limited to the CONUS sector of each satellite (the contiguous United States and nearby ocean), to 42 summer days of 2024 (1 July to 11 August), and to 18:00 to 24:00 UTC. Other seasons, night-time storms, the tropics and the Southern Hemisphere are not represented.
+- GLM does not see every flash. Its detection efficiency is lower in daytime than at night, lower towards the edge of its field of view, and lower for flashes deep inside thick cloud. Flashes with a non-zero quality flag were dropped. The counts are therefore a lower bound on true lightning.
+- No parallax correction was applied. GLM flash positions and ABI cloud-top pixels are located on slightly different reference surfaces, so tall storms far from the sub-satellite point can be offset by a few kilometres, up to about one grid cell.
+- The interval bounds use the mid-scan time of channel 13 for all four channels. Each channel of a scan is taken a few seconds apart, and a flash near a bound may fall into the neighbouring interval.
+- Patch positions oversample lightning: 12 of the 18 candidate positions in each window are drawn near flashes. The share of patches with lightning is therefore far higher than in a random sample of the sky.
+- Brightness temperatures are stored as float16, a step of 0.125 to 0.25 K in the range of the data.
+- GOES-16 and GOES-18 differ in viewing angle, climate regime and calibration, and only a few days of each are included. Results may not carry over to other satellites or years.
+
 ## Licence
 
 NOAA GOES data are works of the U.S. Government and are in the public domain in the United States. This compilation is released under CC0 1.0.
