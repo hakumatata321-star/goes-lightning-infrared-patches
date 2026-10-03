@@ -1,0 +1,11 @@
+The imagery and lightning data in this dataset are derived from NOAA GOES-R Series products
+(ABI L2 Cloud and Moisture Imagery, CONUS sector, and GLM L2 Lightning Cluster Filter
+Algorithm events), distributed through the NOAA Open Data Dissemination program
+(https://registry.opendata.aws/noaa-goes/).
+
+NOAA data are works of the United States Government and are not subject to copyright
+protection in the United States. To the extent any rights apply to this compilation,
+it is released under CC0 1.0 Universal (https://creativecommons.org/publicdomain/zero/1.0/).
+
+Suggested acknowledgement: NOAA GOES-R Series Program, GOES-16 and GOES-18 ABI and GLM
+Level 2 products, accessed via the NOAA Open Data Dissemination program.
